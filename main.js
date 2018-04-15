@@ -1,7 +1,7 @@
-var textArray;
-var outputText;
-var allIndeces;
-var oldTextArray;
+var textArray=[];
+var outputText='';
+var allIndeces=[];
+var oldTextArray=[];
 
 function sentenceCase(str) {
     var str = str.toLowerCase().replace(/\si\s/g, ' I ');
