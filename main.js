@@ -28,6 +28,7 @@ function speak(text, callback) {
     var u = new SpeechSynthesisUtterance();
     u.text = text;
     u.lang = 'en-US';
+    u.voice=u.getVoices()[1]
 
     u.onend = function() {
         if (callback) {
@@ -85,6 +86,9 @@ function loopTwo() {
     if(!allIndeces.length){
         loopOne();
     } else {
+    if ((textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[2]===undefined){
+        break;
+    }
     outputText = outputText + (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[2];
     }
 }
