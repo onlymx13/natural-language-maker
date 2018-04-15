@@ -4,9 +4,6 @@ var allIndeces=[];
 var oldTextArray=[];
 function sentenceCase(str) {
     var str = str.toLowerCase().replace(/\si\s/g, ' I ');
-    str = str.replace(/ ti/g, ' TI');
-    str = str.replace(/ ram/g, ' RAM');
-    str = str.replace(/ plus silver edition/g, ' Plus Silver Edition');
     str = str.charAt(0).toUpperCase() + str.slice(1);
     for (i = 0; i < str.length; i++) {
         if (str.charAt(i) == ".") {
@@ -15,7 +12,7 @@ function sentenceCase(str) {
     }
     return str;
 }
-
+window.onunload=u.cancel();
 function getAllIndeces(arr, val) {
     var indeces = [],
         i;
