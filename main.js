@@ -2,6 +2,7 @@ var textArray=[];
 var outputText='';
 var allIndeces=[];
 var oldTextArray=[];
+var u=new SpeechSynthesisUtterance();
 function sentenceCase(str) {
     var str = str.toLowerCase().replace(/\si\s/g, ' I ');
     str = str.charAt(0).toUpperCase() + str.slice(1);
@@ -22,7 +23,6 @@ function getAllIndeces(arr, val) {
     return indeces;
 }
 function speak(text, callback) {
-    var u = new SpeechSynthesisUtterance();
     u.text = text;
     u.lang = 'en-US';
 
