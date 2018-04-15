@@ -47,9 +47,9 @@ function speak(text, callback) {
 function extrapolateOne(text) {
     textArray = text.toUpperCase().split(" ");
     outputText = textArray[Math.floor(textArray.length * Math.random())];
-    textArray.push("\n");
+    textArray.push("*");
     i = 0;
-    while (outputText.charAt(outputText.length - 1) != "\n" && i < 3 * textArray.length) {
+    while (outputText.charAt(outputText.length - 1) != "*" && i < 3 * textArray.length) {
         i++;
         outputText += " ";
         loopOne();
@@ -70,9 +70,9 @@ function extrapolateTwo(text) {
     }
     var rand=Math.floor(textArray.length * Math.random())
     outputText = textArray[rand][0]+" "+textArray[rand][1];
-    textArray.push([textArray[textArray.length-1][1],"\n"]);
+    textArray.push([textArray[textArray.length-1][1],"*"]);
     i = 0;
-    while (outputText.charAt(outputText.length - 1) != "\n" && i < 3 * textArray.length) {
+    while (outputText.charAt(outputText.length - 1) != "*" && i < 3 * textArray.length) {
         i++;
         outputText += ' ';
         loopTwo();
