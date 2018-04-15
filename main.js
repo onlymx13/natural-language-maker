@@ -68,7 +68,8 @@ function extrapolateTwo(text) {
     for (var i = 0; i < oldTextArray.length - 1; i++) {
         textArray[i] = [oldTextArray[i], oldTextArray[i + 1]];
     }
-    outputText = textArray[Math.floor(textArray.length * Math.random())];
+    var rand=Math.floor(textArray.length * Math.random())
+    outputText = textArray[rand][0]+" "+textArray[rand][1];
     i = 0;
     while (i < 3 * textArray.length) {
         i++;
