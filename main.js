@@ -87,7 +87,8 @@ function loopTwo() {
         loopOne();
     } else {
     if ((textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[2]===undefined){
-        break;
+        finish();
+        throw new Error('');
     }
     outputText = outputText + (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[2];
     }
