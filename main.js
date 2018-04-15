@@ -2,9 +2,6 @@ var textArray=[];
 var outputText='';
 var allIndeces=[];
 var oldTextArray=[];
-String.prototype.addSpace = function() {
-    return this + " ";
-}
 function sentenceCase(str) {
     var str = str.toLowerCase().replace(/\si\s/g, ' I ');
     str = str.replace(/ ti/g, ' TI');
@@ -54,7 +51,7 @@ function extrapolateOne(text) {
     i = 0;
     while (outputText.charAt(outputText.length - 1) != "\n" && i < 3 * textArray.length) {
         i++;
-        outputText = outputText.addSpace();
+        outputText += " ";
         loopOne();
     }
     finish();
@@ -72,13 +69,13 @@ function extrapolateTwo(text) {
         textArray[i] = [oldTextArray[i], oldTextArray[i + 1]];
     }
     outputText = textArray[Math.floor(textArray.length * Math.random())];
-    outputText = outputText.addSpace();
+    outputText += " ";
     allIndeces = getAllIndeces(textArray, outputText.split(" ")[outputText.split(" ").length - 2]);
     outputText = outputText + textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]];
     i = 0;
     while (i < 3 * textArray.length) {
         i++;
-        outputText = outputText.addSpace();
+        outputText += ' ';
         loopTwo();
     }
     finish();
