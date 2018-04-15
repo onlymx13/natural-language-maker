@@ -69,9 +69,6 @@ function extrapolateTwo(text) {
         textArray[i] = [oldTextArray[i], oldTextArray[i + 1]];
     }
     outputText = textArray[Math.floor(textArray.length * Math.random())];
-    outputText += " ";
-    allIndeces = getAllIndeces(textArray, outputText.split(" ")[outputText.split(" ").length - 2]);
-    outputText = outputText + textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]];
     i = 0;
     while (i < 3 * textArray.length) {
         i++;
