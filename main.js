@@ -70,7 +70,7 @@ function extrapolateTwo(text) {
     }
     var rand=Math.floor(textArray.length * Math.random())
     outputText = textArray[rand][0]+" "+textArray[rand][1];
-    textArray.push([textArray[textArray.length-1],["\n"]);
+    textArray.push([textArray[textArray.length-1][1],"\n"]);
     i = 0;
     while (outputText.charAt(outputText.length - 1) != "\n" && i < 3 * textArray.length) {
         i++;
