@@ -28,7 +28,6 @@ function speak(text, callback) {
     var u = new SpeechSynthesisUtterance();
     u.text = text;
     u.lang = 'en-US';
-    u.voice=u.getVoices()[1]
 
     u.onend = function() {
         if (callback) {
