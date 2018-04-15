@@ -58,8 +58,8 @@ function extrapolateOne(text) {
 }
 
 function loopOne() {
-    allIndeces = getAllIndeces(textArray, outputText.split(" ")[outputText.split(" ").length - 2]);
-    outputText = outputText + textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]];
+    allIndeces = getAllIndeces(oldTextArray, outputText.split(" ")[outputText.split(" ").length - 2]);
+    outputText = outputText + oldTextArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]];
 }
 
 function extrapolateTwo(text) {
