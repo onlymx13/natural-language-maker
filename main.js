@@ -87,7 +87,7 @@ function extrapolateTwo(text) {
 }
 
 function loopTwo() {
-    allIndeces = getAllIndeces(textArray, [outputText.split(" ")[outputText.split(" ").length - 3], outputText.split(" ")[outputText.split(" ").length - 2]);
+    allIndeces = getAllIndeces(textArray, [outputText.split(" ")[outputText.split(" ").length - 3], outputText.split(" ")[outputText.split(" ").length - 2]]);
     if(allIndeces===[]){
         loopOne();
     } else {
