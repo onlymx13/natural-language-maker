@@ -2,7 +2,9 @@ var textArray=[];
 var outputText='';
 var allIndeces=[];
 var oldTextArray=[];
-
+String.prototype.addSpace = function() {
+    return this + " ";
+}
 function sentenceCase(str) {
     var str = str.toLowerCase().replace(/\si\s/g, ' I ');
     str = str.replace(/ ti/g, ' TI');
@@ -25,10 +27,6 @@ function getAllIndeces(arr, val) {
             indeces.push(i);
     return indeces;
 }
-String.prototype.addSpace = function() {
-    return this + " ";
-}
-
 function speak(text, callback) {
     var u = new SpeechSynthesisUtterance();
     u.text = text;
