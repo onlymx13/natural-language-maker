@@ -13,7 +13,7 @@ function sentenceCase(str) {
     }
     return str;
 }
-window.onunload=u.cancel();
+window.onunload=speechSynthesis.cancel();
 function getAllIndeces(arr, val) {
     var indeces = [],
         i;
