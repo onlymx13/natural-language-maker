@@ -120,7 +120,7 @@ function loopThree() {
         }
         outputText += (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[2];
 }
-
+}
 function finish() {
     speak(outputText);
     document.getElementById('output').innerHTML = sentenceCase(outputText);
