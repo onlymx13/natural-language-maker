@@ -1,8 +1,9 @@
-var textArray=[];
-var outputText='';
-var allIndeces=[];
-var oldTextArray=[];
-var u=new SpeechSynthesisUtterance();
+var textArray = [];
+var outputText = '';
+var allIndeces = [];
+var oldTextArray = [];
+var u = new SpeechSynthesisUtterance();
+
 function sentenceCase(str) {
     var str = str.toLowerCase().replace(/\si\s/g, ' I ');
     str = str.charAt(0).toUpperCase() + str.slice(1);
@@ -13,7 +14,8 @@ function sentenceCase(str) {
     }
     return str;
 }
-window.onunload=speechSynthesis.cancel();
+window.onunload = speechSynthesis.cancel();
+
 function getAllIndeces(arr, val) {
     var indeces = [],
         i;
@@ -22,6 +24,7 @@ function getAllIndeces(arr, val) {
             indeces.push(i);
     return indeces;
 }
+
 function speak(text, callback) {
     u.text = text;
     u.lang = 'en-US';
@@ -56,7 +59,7 @@ function extrapolateOne(text) {
 
 function loopOne() {
     allIndeces = getAllIndeces(oldTextArray, outputText.split(" ")[outputText.split(" ").length - 2]);
-    outputText = outputText + oldTextArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]];
+    outputText += oldTextArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]];
 }
 
 function extrapolateTwo(text) {
@@ -65,9 +68,9 @@ function extrapolateTwo(text) {
     for (var i = 0; i < oldTextArray.length - 1; i++) {
         textArray[i] = [oldTextArray[i], oldTextArray[i + 1]];
     }
-    var rand=Math.floor(textArray.length * Math.random())
-    outputText = textArray[rand][0]+" "+textArray[rand][1];
-    textArray.push([textArray[textArray.length-1][1],"*"]);
+    var rand = Math.floor(textArray.length * Math.random())
+    outputText = textArray[rand][0] + " " + textArray[rand][1];
+    textArray.push([textArray[textArray.length - 1][1], "*"]);
     i = 0;
     while (outputText.charAt(outputText.length - 1) != "*" && i < 3 * textArray.length) {
         i++;
@@ -77,19 +80,47 @@ function extrapolateTwo(text) {
     finish();
 }
 
+function extrapolateThree(text) {
+    oldTextArray = text.toUpperCase().split(" ");
+    textArray.length = oldTextArray.length - 2;
+    for (var i = 0; i < oldTextArray.length - 2; i++) {
+        textArray[i] = [oldTextArray[i], oldTextArray[i + 1], oldTextArray[i + 2]];
+    }
+    var rand = Math.floor(textArray.length * Math.random());
+    outputText = textArray[rand][0] + " " + textArray[rand][1] + " " + textArray[rand][2];
+    textArray.push([textArray[textArray.length - 1][1], textArray[textArray.length - 1][2], "*"); i = 0;
+            while (outputText.charAt(outputText.length - 1) != "*" && i < 3 * textArray.length) {
+                i++;
+                outputText += ' ';
+                loopThree();
+            }
+            finish();
+
 function loopTwo() {
     allIndeces = getAllIndeces(textArray, [outputText.split(" ")[outputText.split(" ").length - 3], outputText.split(" ")[outputText.split(" ").length - 2]]);
-    if(!allIndeces.length){
+    if (!allIndeces.length) {
         loopOne();
     } else {
-    if ((textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[2]===undefined){
-        finish();
-        throw new Error('');
-    }
-    outputText = outputText + (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[2];
-    }
+        if (outputText.substr(-9) == 'undefined') {
+            finish();
+            throw new Error('');
+        }
+        outputText += (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[1];
+                }
+            }
+function loopThree() {
+    allIndeces = getAllIndeces(textArray, [outputText.split(" ")[outputText.split(" ").length - 4], outputText.split(" ")[outputText.split(" ").length - 3], outputText.split(" ")[outputText.split(" ").length - 2]]);
+    if (!allIndeces.length) {
+        loopTwo();
+    } else {
+        if (outputText.substr(-9) == 'undefined') {
+            finish();
+            throw new Error('');
+        }
+        outputText += (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[2];
 }
+
 function finish() {
-        speak(sentenceCase(outputText));
-        document.getElementById('output').innerHTML = sentenceCase(outputText);
-    }
+    speak(outputText);
+    document.getElementById('output').innerHTML = sentenceCase(outputText);
+}
