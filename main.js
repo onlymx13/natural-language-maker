@@ -29,11 +29,29 @@ textArray.push("*");
 i=0;
 while(outputText.charAt(outputText.length-1)!="*" && i<3*textArray.length) {
 i++;
-console.log('in loop');
 outputText=outputText.addSpace();
 allIndeces = getAllIndeces(textArray,outputText.split(" ")[outputText.split(" ").length-2]);
 outputText=outputText+textArray[1+allIndeces[Math.floor((allIndeces.length)*Math.random())]];
 }
-console.log('out of loop')
+speak(sentenceCase(outputText));
+function speak(text, callback) {
+    var u = new SpeechSynthesisUtterance();
+    u.text = text;
+    u.lang = 'en-US';
+ 
+    u.onend = function () {
+        if (callback) {
+            callback();
+        }
+    };
+ 
+    u.onerror = function (e) {
+        if (callback) {
+            callback(e);
+        }
+    };
+ 
+    speechSynthesis.speak(u);
+}
 document.getElementById('output').innerHTML=sentenceCase(outputText);
 }
