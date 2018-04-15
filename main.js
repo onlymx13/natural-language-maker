@@ -83,7 +83,7 @@ function extrapolateTwo(text) {
 
 function loopTwo() {
     allIndeces = getAllIndeces(textArray, [outputText.split(" ")[outputText.split(" ").length - 3], outputText.split(" ")[outputText.split(" ").length - 2]]);
-    if(allIndeces===[]){
+    if(!allIndeces.length){
         loopOne();
     } else {
     outputText = outputText + (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[2];
