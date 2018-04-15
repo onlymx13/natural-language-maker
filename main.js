@@ -19,9 +19,10 @@ window.onunload = speechSynthesis.cancel();
 function getAllIndeces(arr, val) {
     var indeces = [],
         i;
-    for (i = 0; i < arr.length; i++)
+    for (i = 0; i < arr.length; i++) {
         if (arr[i] === val)
             indeces.push(i);
+    }
     return indeces;
 }
 
@@ -96,6 +97,7 @@ function extrapolateThree(text) {
                 loopThree();
             }
             finish();
+}
 
 function loopTwo() {
     allIndeces = getAllIndeces(textArray, [outputText.split(" ")[outputText.split(" ").length - 3], outputText.split(" ")[outputText.split(" ").length - 2]]);
