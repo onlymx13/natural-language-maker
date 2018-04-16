@@ -88,7 +88,7 @@ function extrapolateThree(text) {
     oldTextArray = text.toUpperCase().split(" ");
     var twoTextArray = new Array(oldTextArray.length - 1);
     for (var i = 0; i < oldTextArray.length - 1; i++) {
-        twotextArray[i] = [oldTextArray[i], oldTextArray[i + 1]];
+        twoTextArray[i] = [oldTextArray[i], oldTextArray[i + 1]];
     }
     textArray.length = oldTextArray.length - 2;
     for (var i = 0; i < oldTextArray.length - 2; i++) {
