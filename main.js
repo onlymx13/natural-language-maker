@@ -86,6 +86,10 @@ function extrapolateTwo(text) {
 
 function extrapolateThree(text) {
     oldTextArray = text.toUpperCase().split(" ");
+    var twoTextArray = new Array(oldTextArray.length - 1);
+    for (var i = 0; i < oldTextArray.length - 1; i++) {
+        twotextArray[i] = [oldTextArray[i], oldTextArray[i + 1]];
+    }
     textArray.length = oldTextArray.length - 2;
     for (var i = 0; i < oldTextArray.length - 2; i++) {
         textArray[i] = [oldTextArray[i], oldTextArray[i + 1], oldTextArray[i + 2]];
@@ -103,11 +107,11 @@ function extrapolateThree(text) {
 }
 
 function loopTwo() {
-    allIndeces = getAllIndeces(textArray, [outputText.split(" ")[outputText.split(" ").length - 3], outputText.split(" ")[outputText.split(" ").length - 2]]);
+    allIndeces = getAllIndeces(twoTextArray, [outputText.split(" ")[outputText.split(" ").length - 3], outputText.split(" ")[outputText.split(" ").length - 2]]);
     if (!allIndeces.length) {
         loopOne();
     } else {
-        var out = (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[1];
+        var out = (twoTextArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[1];
         if (out != 'undefined'){
         outputText += out;
         }
