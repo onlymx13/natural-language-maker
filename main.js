@@ -2,6 +2,7 @@ var textArray = [];
 var outputText = '';
 var allIndeces = [];
 var oldTextArray = [];
+var twoTextArray;
 var u = new SpeechSynthesisUtterance();
 
 function sentenceCase(str) {
@@ -86,7 +87,7 @@ function extrapolateTwo(text) {
 
 function extrapolateThree(text) {
     oldTextArray = text.toUpperCase().split(" ");
-    var twoTextArray = new Array(oldTextArray.length - 1);
+    twoTextArray = new Array(oldTextArray.length - 1);
     for (var i = 0; i < oldTextArray.length - 1; i++) {
         twoTextArray[i] = [oldTextArray[i], oldTextArray[i + 1]];
     }
