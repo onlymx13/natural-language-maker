@@ -104,11 +104,10 @@ function loopTwo() {
     if (!allIndeces.length) {
         loopOne();
     } else {
-        if (outputText.substr(-10) == 'undefined ') {
-            finish();
-            throw new Error('');
+        var out = (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[1];
+        if (typeof out != 'undefined'){
+        outputText += out;
         }
-        outputText += (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[1];
                 }
             }
 function loopThree() {
@@ -116,11 +115,10 @@ function loopThree() {
     if (!allIndeces.length) {
         loopTwo();
     } else {
-        if (outputText.substr(-10) == 'undefined ') {
-            finish();
-            throw new Error('');
-        }
-        outputText += (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[2];
+        var out = (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[2];
+      if (typeof out != 'undefined'){
+        outputText += out;
+    }
 }
 }
 function finish() {
