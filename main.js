@@ -104,7 +104,7 @@ function loopTwo() {
     if (!allIndeces.length) {
         loopOne();
     } else {
-        if (outputText.substr(-9) == 'undefined') {
+        if (outputText.substr(-10) == 'undefined ') {
             finish();
             throw new Error('');
         }
@@ -116,7 +116,7 @@ function loopThree() {
     if (!allIndeces.length) {
         loopTwo();
     } else {
-        if (outputText.substr(-9) == 'undefined') {
+        if (outputText.substr(-10) == 'undefined ') {
             finish();
             throw new Error('');
         }
