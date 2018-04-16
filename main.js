@@ -106,7 +106,8 @@ function loopTwo() {
     } else {
         var out = (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[1];
         if (out != 'undefined'){
-        outputText += out;
+        alert(out);
+            outputText += out;
         }
                 }
             }
@@ -117,7 +118,8 @@ function loopThree() {
     } else {
         var out = (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[2];
       if (out != 'undefined'){
-        outputText += out;
+      alert(out);
+          outputText += out;
     }
 }
 }
