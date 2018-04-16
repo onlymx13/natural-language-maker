@@ -5,6 +5,7 @@
 </head>
 <body>
 <p id='output'></p>
-<textarea rows='8' style='width:100%;' autofocus onchange="if(this.value.indexOf('.')>=1){extrapolateThree(this.value);}"></textarea>
-</body>
+<textarea id='input' rows='8' style='width:100%;' autofocus onchange="if(this.value.indexOf('.')>=1){extrapolateThree(this.value);}"></textarea>
+<button onclick='if(document.getElementById('input').value.indexOf('.')>=1){extrapolateThree(document.getElementById('input').value);}'>Recalculate</button>
+  </body>
 </html>
