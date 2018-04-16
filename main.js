@@ -60,7 +60,10 @@ function extrapolateOne(text) {
 
 function loopOne() {
     allIndeces = getAllIndeces(oldTextArray, outputText.split(" ")[outputText.split(" ").length - 2]);
-    outputText += oldTextArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]];
+    out= oldTextArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]]
+    if(out != undefined){
+    outputText += out;
+    }
 }
 
 function extrapolateTwo(text) {
@@ -106,8 +109,7 @@ function loopTwo() {
     } else {
         var out = (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[1];
         if (out != 'undefined'){
-        alert(out);
-            outputText += out;
+        outputText += out;
         }
                 }
             }
@@ -118,8 +120,7 @@ function loopThree() {
     } else {
         var out = (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[2];
       if (out != 'undefined'){
-      alert(out);
-          outputText += out;
+      outputText += out;
     }
 }
 }
