@@ -118,6 +118,9 @@ oldTextArray = text.toUpperCase().split(" ");
         textArray[i] = [oldTextArray[i], oldTextArray[i + 1], oldTextArray[i + 2]];
     }
 var fourTextArray = new Array(oldTextArray.length - 3);
+    for(var i = 0; i < oldTextArray.length - 3; i++) {
+        fourTextArray[i] = [oldTextArray[i], oldTextArray[i + 1], oldTextArray[i + 2], oldTextArray[i + 3]];
+    }
 }
 
 function loopTwo() {
