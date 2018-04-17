@@ -126,6 +126,7 @@ function loopThree() {
         var out = (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[2];
       if (out != 'undefined'){
       outputText += out;
+          alert('it did work');
     }
 }
 }
