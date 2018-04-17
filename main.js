@@ -155,7 +155,7 @@ function loopThree() {
 }
     
 function loopFour() {
-    allIndeces = getAllIndeces(fourTextArray, [outputText.split(" ")[outputText.split(" ").length - 5], outputText.split(" ")[outputText.split(" ").length - 4], outputText.split(" ")[outputText.split(" ").length - 3], outputText.split(" ").length - 2]]);
+    allIndeces = getAllIndeces(fourTextArray, [outputText.split(" ")[outputText.split(" ").length - 5], outputText.split(" ")[outputText.split(" ").length - 4], outputText.split(" ")[outputText.split(" ").length - 3], outputText.split(" ")[outputText.split(" ").length - 2]]);
     if (!allIndeces.length) {
         loopThree();
     } else {
