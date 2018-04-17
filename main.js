@@ -123,7 +123,7 @@ var fourTextArray = new Array(oldTextArray.length - 3);
     var rand = Math.floor(textArray.length * Math.random());
     outputText = fourTextArray[rand][0]+" "+fourTextArray[rand][1]+" "+fourTextArray[rand][2]+" "+fourTextArray[rand][3];
     i = 0;
-    while(i < 3 * fourTextArray.length( {
+    while(i < 3 * fourTextArray.length) {
         i++;
         outputText += " ";
         loopFour();
