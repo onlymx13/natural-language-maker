@@ -3,6 +3,7 @@ var outputText = '';
 var allIndeces = [];
 var oldTextArray = [];
 var twoTextArray;
+var fourTextArray;
 var u = new SpeechSynthesisUtterance();
 
 function sentenceCase(str) {
@@ -116,7 +117,7 @@ oldTextArray = text.toUpperCase().split(" ");
     for (var i = 0; i < oldTextArray.length - 2; i++) {
         textArray[i] = [oldTextArray[i], oldTextArray[i + 1], oldTextArray[i + 2]];
     }
-var fourTextArray = new Array(oldTextArray.length - 3);
+fourTextArray = new Array(oldTextArray.length - 3);
     for(var i = 0; i < oldTextArray.length - 3; i++) {
         fourTextArray[i] = [oldTextArray[i], oldTextArray[i + 1], oldTextArray[i + 2], oldTextArray[i + 3]];
     }
