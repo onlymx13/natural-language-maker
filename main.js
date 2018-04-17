@@ -165,7 +165,6 @@ function loopFour() {
         }
     }
 }
-}
 function finish() {
     speak(outputText);
     document.getElementById('output').innerHTML = sentenceCase(outputText);
