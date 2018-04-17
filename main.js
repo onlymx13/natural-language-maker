@@ -6,7 +6,7 @@ var twoTextArray;
 var u = new SpeechSynthesisUtterance();
 
 function sentenceCase(str) {
-    var str = str.toLowerCase().replace(/\si\s/g, ' I ');
+    str = str.toLowerCase().replace(/\si\s/g, ' I ');
     str = str.charAt(0).toUpperCase() + str.slice(1);
     for (i = 0; i < str.length; i++) {
         if (str.charAt(i) == ".") {
@@ -61,8 +61,8 @@ function extrapolateOne(text) {
 
 function loopOne() {
     allIndeces = getAllIndeces(oldTextArray, outputText.split(" ")[outputText.split(" ").length - 2]);
-    out= oldTextArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]]
-    if(out != undefined){
+    out = oldTextArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]];
+    if(out != 'undefined'){
     outputText += out;
     }
 }
@@ -73,7 +73,7 @@ function extrapolateTwo(text) {
     for (var i = 0; i < oldTextArray.length - 1; i++) {
         textArray[i] = [oldTextArray[i], oldTextArray[i + 1]];
     }
-    var rand = Math.floor(textArray.length * Math.random())
+    var rand = Math.floor(textArray.length * Math.random());
     outputText = textArray[rand][0] + " " + textArray[rand][1];
     textArray.push([textArray[textArray.length - 1][1], "*"]);
     i = 0;
