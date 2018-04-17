@@ -97,9 +97,8 @@ function extrapolateThree(text) {
     }
     var rand = Math.floor(textArray.length * Math.random());
     outputText = textArray[rand][0] + " " + textArray[rand][1] + " " + textArray[rand][2];
-    textArray.push([textArray[textArray.length - 1][1], textArray[textArray.length - 1][2], "*"]);
-            i = 0;
-            while (outputText.charAt(outputText.length - 1) != "*" && i < 3 * textArray.length) {
+        i = 0;
+            while (i < 3 * textArray.length) {
                 i++;
                 outputText += ' ';
                 loopThree();
@@ -121,6 +120,15 @@ var fourTextArray = new Array(oldTextArray.length - 3);
     for(var i = 0; i < oldTextArray.length - 3; i++) {
         fourTextArray[i] = [oldTextArray[i], oldTextArray[i + 1], oldTextArray[i + 2], oldTextArray[i + 3]];
     }
+    var rand = Math.floor(textArray.length * Math.random());
+    outputText = fourTextArray[rand][0]+" "+fourTextArray[rand][1]+" "+fourTextArray[rand][2]+" "+fourTextArray[rand][3];
+    i = 0;
+    while(i < 3 * fourTextArray.length( {
+        i++;
+        outputText += " ";
+        loopFour();
+    }
+    finish();
 }
 
 function loopTwo() {
@@ -139,9 +147,22 @@ function loopThree() {
     if (!allIndeces.length) {
         loopTwo();
     } else {
-        var out = (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[2];
+      var out = (textArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[2];
       if (out != 'undefined'){
       outputText += out;
+      }
+    }
+}
+    
+function loopFour() {
+    allIndeces = getAllIndeces(fourTextArray, [outputText.split(" ")[outputText.split(" ").length - 5], outputText.split(" ")[outputText.split(" ").length - 4], outputText.split(" ")[outputText.split(" ").length - 3], outputText.split(" ").length - 2]]);
+    if (!allIndeces.length) {
+        loopThree();
+    } else {
+        var out = (fourTextArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[3];
+        if (out != 'undefined'){
+            outputText += out;
+        }
     }
 }
 }
