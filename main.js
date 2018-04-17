@@ -63,7 +63,7 @@ function extrapolateOne(text) {
 function loopOne() {
     allIndeces = getAllIndeces(oldTextArray, outputText.split(" ")[outputText.split(" ").length - 2]);
     out = oldTextArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]];
-    if(out != 'undefined'){
+    if(out !== undefined){
     outputText += out;
     }
 }
