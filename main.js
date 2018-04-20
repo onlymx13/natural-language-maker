@@ -156,7 +156,7 @@ function extrapolateN(text,number = text.toUpperCase().split(" ").length) {
     while(i < 3 * allTextArrays[number - 1].length) {
         i++;
         outputText += " ";
-        loopN(randInt(1,allTextArrays.length));
+        loopN(randInt(1,allTextArrays.length - document.getElementById('slider').value));
     }
 }
 /*
