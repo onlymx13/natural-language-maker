@@ -34,7 +34,6 @@ function getAllIndeces(arr, val) {
 function speak(text, callback) {
     u.text = text;
     u.lang = 'en-US';
-
     u.onend = function() {
         if (callback) {
             callback();
@@ -199,7 +198,7 @@ function loopFour() {
 function loopN(number) {
     var myArray = new Array(number);
     for(var i = 0; i < number; i++) {
-        myArray[i] = outputText.split(" ")[outputText.split(" ").length - (5-i)];
+        myArray[i] = outputText.split(" ")[outputText.split(" ").length - (6-i)];
     }
     allIndeces = getAllIndeces(allTextArrays[number - 1], myArray);
     if (!allIndeces.length) {
