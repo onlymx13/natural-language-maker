@@ -198,7 +198,7 @@ function loopFour() {
 function loopN(number) {
     var myArray = new Array(number);
     for(var i = 0; i < number; i++) {
-        myArray[i] = outputText.split(" ")[outputText.split(" ").length - (6-i)];
+        myArray[i] = outputText.split(" ")[outputText.split(" ").length - (number + 1-i)];
     }
     allIndeces = getAllIndeces(allTextArrays[number - 1], myArray);
     if (!allIndeces.length) {
