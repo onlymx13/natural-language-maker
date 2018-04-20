@@ -4,6 +4,7 @@ var allIndeces = [];
 var oldTextArray = [];
 var twoTextArray;
 var fourTextArray;
+var allTextArrays;
 var u = new SpeechSynthesisUtterance();
 
 function sentenceCase(str) {
@@ -121,7 +122,7 @@ fourTextArray = new Array(oldTextArray.length - 3);
     for(var i = 0; i < oldTextArray.length - 3; i++) {
         fourTextArray[i] = [oldTextArray[i], oldTextArray[i + 1], oldTextArray[i + 2], oldTextArray[i + 3]];
     }
-    var rand = Math.floor(textArray.length * Math.random());
+    var rand = Math.floor(fourTextArray.length * Math.random());
     outputText = fourTextArray[rand][0]+" "+fourTextArray[rand][1]+" "+fourTextArray[rand][2]+" "+fourTextArray[rand][3];
     i = 0;
     while(i < 3 * fourTextArray.length) {
@@ -132,6 +133,30 @@ fourTextArray = new Array(oldTextArray.length - 3);
     finish();
 }
 
+function extrapolateN(text,number) {
+    allTextArrays=new Array(text.toUpperCase().split(" ").length);
+    allTextArrays[0]=text.toUpperCase().split(" ");
+    for(var arrayBeingCreated = 1; arrayBeingCreated < allTextArrays[0].length; arrayBeingCreated++) {
+        allTextArrays[arrayBeingCreated] = new Array(allTextArrays[0].length - arrayBeingCreated);
+        for(var pos = 0; pos < allTextArrays[0].length - arrayBeingCreated;pos++){
+            for(var addend = 0; addend < pos; addend++) {
+                allTextArrays[arrayBeingCreated] = allTextArrays[arrayBeingCreated].concat(allTextArrays[0][pos + addend]);
+            }
+        }
+    }
+    var rand = Math.floor(allTextArrays[number - 1].length * Math.random());
+    outputText = '';
+    for(i = 0; i < number; i++) {
+    outputText += allTextArrays[number - 1][rand][i]+' ';
+    }
+    outputText = outputText.slice(0,-1);
+    i = 0;
+    while(i < 3 * allTextArrays[number - 1].length) {
+        i++;
+        outputText += " ";
+        loopN(Math.floor(Math.random() * allTextArrays.length));
+    }
+}
 function loopTwo() {
     allIndeces = getAllIndeces(twoTextArray, [outputText.split(" ")[outputText.split(" ").length - 3], outputText.split(" ")[outputText.split(" ").length - 2]]);
     if (!allIndeces.length) {
@@ -161,6 +186,21 @@ function loopFour() {
         loopThree();
     } else {
         var out = (fourTextArray[1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[3];
+        if (out != 'undefined'){
+            outputText += out;
+        }
+    }
+}
+function loopN(number) {
+    var myArray = new Array(number);
+    for(var i = 0; i < number; i++) {
+        myArray[i] = outputText.split(" ")[outputText.split(" ").length - (5-i)];
+    }
+    allIndeces = getAllIndeces(allTextArrays[number - 1], myArray);
+    if (!allIndeces.length) {
+        loopN(number - 1);
+    } else {
+        var out = (allTextArrays[number - 1][1 + allIndeces[Math.floor((allIndeces.length) * Math.random())]])[number - 1];
         if (out != 'undefined'){
             outputText += out;
         }
