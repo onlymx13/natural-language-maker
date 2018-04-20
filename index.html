@@ -8,6 +8,8 @@
 <p id='output'></p>
 <textarea id='input' rows='8' style='width:100%;' autofocus onchange="if(this.value.indexOf('.')>=1){extrapolateN(this.value);}"></textarea>
 <button onclick="if(document.getElementById('input').value.indexOf('.')>=1){extrapolateN(document.getElementById('input').value);}">Recalculate</button>
-<input id='slider' type='range' min='1' max='document.getElementById('input').value.split(" ").length' value='1'></input>
+<br>
+<h1>Randomness level</h1>
+<input id='slider' type='range' min='0' max='document.getElementById('input').value.split(" ").length' value='1'></input>
 </body>
 </html>
