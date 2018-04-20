@@ -48,7 +48,7 @@ function speak(text, callback) {
     speechSynthesis.speak(u);
 }
 
-function extrapolateOne(text) {
+/*function extrapolateOne(text) {
     textArray = text.toUpperCase().split(" ");
     outputText = textArray[Math.floor(textArray.length * Math.random())];
     textArray.push("*");
@@ -132,7 +132,7 @@ fourTextArray = new Array(oldTextArray.length - 3);
     }
     finish();
 }
-
+*/
 function extrapolateN(text,number = text.toUpperCase().split(" ").length) {
     allTextArrays=new Array(text.toUpperCase().split(" ").length);
     allTextArrays[0]=text.toUpperCase().split(" ");
@@ -157,6 +157,7 @@ function extrapolateN(text,number = text.toUpperCase().split(" ").length) {
         loopN(Math.floor(Math.random() * allTextArrays.length));
     }
 }
+/*
 function loopTwo() {
     allIndeces = getAllIndeces(twoTextArray, [outputText.split(" ")[outputText.split(" ").length - 3], outputText.split(" ")[outputText.split(" ").length - 2]]);
     if (!allIndeces.length) {
@@ -191,6 +192,7 @@ function loopFour() {
         }
     }
 }
+*/
 function loopN(number) {
     var myArray = new Array(number);
     for(var i = 0; i < number; i++) {
