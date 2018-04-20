@@ -6,7 +6,9 @@ var twoTextArray;
 var fourTextArray;
 var allTextArrays;
 var u = new SpeechSynthesisUtterance();
-
+function randInt(a,b) {
+return a + Math.floor((b - a + 1) * Math.random());   
+}
 function sentenceCase(str) {
     str = str.toLowerCase().replace(/\si\s/g, ' I ');
     str = str.charAt(0).toUpperCase() + str.slice(1);
@@ -154,7 +156,7 @@ function extrapolateN(text,number = text.toUpperCase().split(" ").length) {
     while(i < 3 * allTextArrays[number - 1].length) {
         i++;
         outputText += " ";
-        loopN(Math.floor(Math.random() * allTextArrays.length));
+        loopN(randInt(1,allTextArrays.length));
     }
 }
 /*
