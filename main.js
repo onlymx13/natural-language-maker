@@ -133,7 +133,7 @@ fourTextArray = new Array(oldTextArray.length - 3);
     finish();
 }
 
-function extrapolateN(text,number) {
+function extrapolateN(text,number = text.toUpperCase().split(" ").length) {
     allTextArrays=new Array(text.toUpperCase().split(" ").length);
     allTextArrays[0]=text.toUpperCase().split(" ");
     for(var arrayBeingCreated = 1; arrayBeingCreated < allTextArrays[0].length; arrayBeingCreated++) {
