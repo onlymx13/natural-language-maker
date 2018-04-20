@@ -142,7 +142,7 @@ function extrapolateN(text,number = text.toUpperCase().split(" ").length) {
         allTextArrays[arrayBeingCreated] = new Array(allTextArrays[0].length - arrayBeingCreated);
         for(var pos = 0; pos < allTextArrays[0].length - arrayBeingCreated;pos++){
             for(var addend = 0; addend < pos + 1; addend++) {
-                allTextArrays[arrayBeingCreated] = allTextArrays[arrayBeingCreated].concat(allTextArrays[0][pos + addend]);
+                allTextArrays[arrayBeingCreated][pos] = allTextArrays[arrayBeingCreated][pos].concat(allTextArrays[0][pos + addend]);
             }
         }
     }
