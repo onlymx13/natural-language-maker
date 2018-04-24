@@ -202,7 +202,7 @@ function loopN(number) {
     }
     allIndeces = getAllIndeces(allTextArrays[number - 1], myArray);
     if (!allIndeces.length) {
-        if (outputText.split(" ")[outputText.split(" ").length - 1] == "allTextArrays[0][allTextArrays[0].length - 1]"){
+        if (outputText.split(" ")[outputText.split(" ").length - 1] == allTextArrays[0][allTextArrays[0].length - 1]){
            finish(); 
         } else {
             loopN(number - 1);
